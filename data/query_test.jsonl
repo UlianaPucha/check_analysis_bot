@@ -1,0 +1,25 @@
+{"question": "сколько я прогулял денег в кафе в этом месяце", "query": {"metric": "sum", "period": "this_month", "category": "еда", "text": null}}
+{"question": "Скажи, сколько ушло на алкашку за прошлый месяц", "query": {"metric": "sum", "period": "last_month", "category": "напитки", "text": null}}
+{"question": "а на кофе сколько за неделю?", "query": {"metric": "sum", "period": "last_7_days", "category": null, "text": "кофе"}}
+{"question": "сколько я в октябре оставил в Ленте", "query": {"metric": "sum", "period": "month:10", "category": null, "text": "лента"}}
+{"question": "покажи что больше всего денег съедает", "query": {"metric": "top_categories", "period": "this_month", "category": null, "text": null}}
+{"question": "какой средний чек был в сентябре", "query": {"metric": "avg_receipt", "period": "month:09", "category": null, "text": null}}
+{"question": "сколько раз за месяц я брал пиво", "query": {"metric": "count", "period": "this_month", "category": null, "text": "пиво"}}
+{"question": "самая дорогая вещь которую я купил за год", "query": {"metric": "max_item", "period": "this_year", "category": null, "text": null}}
+{"question": "траты на аптеку вчера", "query": {"metric": "sum", "period": "yesterday", "category": "здоровье", "text": null}}
+{"question": "сколько всего потратил с начала года", "query": {"metric": "sum", "period": "this_year", "category": null, "text": null}}
+{"question": "в каком магазине я больше всего трачу", "query": {"metric": "top_shops", "period": "this_month", "category": null, "text": null}}
+{"question": "сколько стоили мои продукты за последние 30 дней", "query": {"metric": "sum", "period": "last_30_days", "category": "еда", "text": null}}
+{"question": "привет! что умеешь?", "query": {"metric": "none", "period": null, "category": null, "text": null}}
+{"question": "спасибо большое", "query": {"metric": "none", "period": null, "category": null, "text": null}}
+{"question": "сколько потратил сегодня", "query": {"metric": "sum", "period": "today", "category": null, "text": null}}
+{"question": "на что уходят деньги в этом году", "query": {"metric": "top_categories", "period": "this_year", "category": null, "text": null}}
+{"question": "какие товары я покупал чаще всего на прошлой неделе", "query": {"metric": "top_items", "period": "last_week", "category": null, "text": null}}
+{"question": "сколько я потратила на одежду в мае 2026", "query": {"metric": "sum", "period": "month:05.2026", "category": "одежда", "text": null}}
+{"question": "сколько чеков я загрузил за всё время", "query": {"metric": "count", "period": "all", "category": null, "text": null}}
+{"question": "траты на такси за неделю", "query": {"metric": "sum", "period": "last_7_days", "category": null, "text": "такси"}}
+{"question": "сколько ушло на бытовую химию в прошлом месяце", "query": {"metric": "sum", "period": "last_month", "category": "бытовое", "text": null}}
+{"question": "самая крупная покупка еды в этом месяце", "query": {"metric": "max_item", "period": "this_month", "category": "еда", "text": null}}
+{"question": "сколько я потратил на развлечения за этот год", "query": {"metric": "sum", "period": "this_year", "category": "развлечения", "text": null}}
+{"question": "топ магазинов за прошлый месяц", "query": {"metric": "top_shops", "period": "last_month", "category": null, "text": null}}
+{"question": "сколько я трачу на шоколад вообще", "query": {"metric": "sum", "period": "all", "category": null, "text": "шоколад"}}

@@ -1,0 +1,47 @@
+# секреты
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# IDE и системные файлы
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# модели: Qwen (~4,5 ГБ, скачивается сама) и наши веса (~370 МБ, создают train_*.py)
+hf_cache/
+vlm_lora_2b_cat/
+vlm_lora_2b_cat_v2/
+meta_lora/
+query_lora/
+model_real/
+model/
+*.safetensors
+*.bin
+*.pt
+
+# большие и сгенерированные данные
+data/receipt-ocr-ru/
+data/synthetic_receipts.parquet
+data/nonreceipts_*.parquet
+data/real_items_to_label.xlsx
+
+# данные пользователей и отладка
+data/expenses.db
+data/user_corrections*.csv
+debug_receipts/
+reports/
+*.log
+
+# архивы
+*.zip
