@@ -11,12 +11,12 @@
 ## 1. Быстрый старт
 
 Требования: Windows или Linux, Python 3.12, **видеокарта NVIDIA с CUDA и ≥ 8 ГБ видеопамяти** (без неё бот
-не запускается — так задумано), ~10 ГБ на диске.
+не запускается), ~10 ГБ на диске.
 
 Окружение (Python 3.12, torch 2.6.0+cu124, transformers 5.22, peft 0.21, aiogram 3.31):
 
 ```powershell
-uv venv --python 3.12 .venv        # или: python -m venv .venv
+uv venv --python 3.12 .venv       
 uv pip install --python .venv\Scripts\python.exe torch torchvision --index-url https://download.pytorch.org/whl/cu124
 uv pip install --python .venv\Scripts\python.exe -r requirements.txt
 ```
@@ -27,20 +27,20 @@ uv pip install --python .venv\Scripts\python.exe -r requirements.txt
 .venv\Scripts\python main.py
 ```
 
-Настройки — в файле `.env` (скопировать `.env.example` в `.env` и вписать свой токен):
+Настройки — в файле `.env`:
 
 | Переменная | Зачем |
 |---|---|
-| `BOT_TOKEN` | токен бота от @BotFather (обязательно) |
+| `BOT_TOKEN` | токен бота от @BotFather |
 | `DEBUG_SAVE` | `1` — сохранять присланные фото в `debug_receipts/` для разбора ошибок; по умолчанию `0` |
-| `BOT_HF_HOME` | необязательно: где лежит модель Qwen; по умолчанию `hf_cache/` внутри проекта |
+| `BOT_HF_HOME` | необязательно: где лежит модель Qwen, по умолчанию `hf_cache/` внутри проекта |
 
 Веса наших дообученных моделей (`vlm_lora_2b_cat/`, `vlm_lora_2b_cat_v2/`, `meta_lora/`, `query_lora/`,
 `model_real/`, ~370 МБ) в репозитории не хранятся из-за размера. Их можно получить у авторов (распаковать
 в корень проекта) или обучить заново командами из раздела 9.
 
 Модель Qwen3.5-2B (~4,5 ГБ) лежит в `hf_cache/`. Если папки нет, при первом запуске модель скачается с
-Hugging Face туда же; если есть — бот не обращается к Hugging Face (`HF_HUB_OFFLINE=1`). Это настраивает
+Hugging Face туда же, если есть — бот не обращается к Hugging Face (`HF_HUB_OFFLINE=1`). Это настраивает
 `env_setup.py`, который импортируется первым во всех скриптах (до transformers).
 
 Признак успешного запуска в консоли:
@@ -251,15 +251,15 @@ del, delok, cancel, mon, lim, demo, forget`.
 ```powershell
 # датасет чеков: скачать parquet-файлы из https://huggingface.co/datasets/cdek-ocr/receipt-ocr-ru (папка data/) в data\receipt-ocr-ru\
 .venv\Scripts\python make_synthetic_receipts.py --n 400
-.venv\Scripts\python train_vlm.py --epochs 2 --with-category --out vlm_lora_2b_cat                     # ~45 мин
-.venv\Scripts\python train_vlm.py --epochs 2 --with-category --synthetic data/synthetic_receipts.parquet --out vlm_lora_2b_cat_v2   # ~60 мин
+.venv\Scripts\python train_vlm.py --epochs 2 --with-category --out vlm_lora_2b_cat                     
+.venv\Scripts\python train_vlm.py --epochs 2 --with-category --synthetic data/synthetic_receipts.parquet --out vlm_lora_2b_cat_v2   
 .venv\Scripts\python make_nonreceipts.py --n 450 --seed 11 --out data/nonreceipts_train.parquet
 .venv\Scripts\python make_nonreceipts.py --n 120 --seed 99 --out data/nonreceipts_test.parquet
-.venv\Scripts\python train_meta.py --epochs 2                                                           # ~50 мин
+.venv\Scripts\python train_meta.py --epochs 2                                                           
 .venv\Scripts\python make_query_dataset.py
-.venv\Scripts\python train_query.py                                                                     # ~10 мин
-.venv\Scripts\python train_real.py                                                                      # ~5 мин
-.venv\Scripts\python evaluate.py --split test                                                           # ~20 мин
+.venv\Scripts\python train_query.py                                                                     
+.venv\Scripts\python train_real.py                                                                      
+.venv\Scripts\python evaluate.py --split test                                                           
 ```
 Технические детали обучения LoRA (`train_vlm.py`, `train_meta.py`):
 - LoRA r=16, alpha=32, только линейные слои языковой части (`language_model`), «зрение» заморожено;
